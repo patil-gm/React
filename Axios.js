@@ -1,3 +1,5 @@
+const url="http://localhost:8000/blogs";
+
 axios.get(url)
     .then(res=>{
         setBlogs(res.data); 
@@ -18,7 +20,7 @@ axios.get(url)
    
             // here we are creating object to post using the var declared previously
             const Blog = {title,body,author}
-//             console.log(Blog);
+            //  console.log(Blog);
 
             axios.post(url, Blog)
               .then(function (response) {
