@@ -1,11 +1,11 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from './components/Navbar';
-import Create from './components/Create';
-import BlogDetails from './components/BlogDetails';
-import NotFound from './components/NotFound';
-import Home from './components/Home';
+// import Navbar from './components/Navbar';
+// import Create from './components/Create';
+// import BlogDetails from './components/BlogDetails';
+// import NotFound from './components/NotFound';
+// import Home from './components/Home';
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
                 <Route path="/" element={<Home/>} />
                 <Route path="/create" element={<Create/>} />
                 <Route path="/blogs/:id" element={<BlogDetails/>} />
+//              Not found wala path
                 <Route path="*" element={<NotFound/>} />
             </Routes>
             </div>
