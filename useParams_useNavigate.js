@@ -16,6 +16,8 @@ const BlogDetails =()=>{
     const handleClick=()=>{
         fetch(API + blog.id , {method : 'DELETE'})
           .then(()=>{
+//       this will navigate us to declared path after deleting the post
+//       we can also use -1,-2 wich will direct us to previous pages
               navigate('/');
           })
     }
