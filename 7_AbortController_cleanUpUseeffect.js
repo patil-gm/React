@@ -12,24 +12,7 @@ const useFetch=(url)=>{
         const abortContr = new AbortController();
         
         setTimeout(()=>{
-            // fetch(url)
-            //     .then(res=>{
-            //         if(!res.ok){
-            //             setError(true);
-            //             throw Error("cant able to connect the server..!")
-            //         }
-            //         return res.json();
-            //     })
-            //     .then(res=>{
-            //         setBlogs(res); 
-            //         setisPending(false); 
-            //         setError(null);
-            //     })
-            //     .catch((err)=>{
-            //           setisPending(false);
-            //           setError(err.message);
-            //       })
-
+         
             axios.get(url,{ signal:abortContr.signal})
                 .then(res=>{
                     setBlogs(res.data); 
