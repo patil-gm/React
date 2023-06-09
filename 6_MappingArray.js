@@ -22,3 +22,6 @@ const BlogList=(props)=>{
 }
 
 export default BlogList;
+
+// Props Passing syntax
+{workouts && <WorkoutList Blogs={Blogs},title="my blogs"/>}
