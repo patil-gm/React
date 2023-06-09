@@ -1,21 +1,18 @@
 // the of the custom hook should always be start with 'use' word
-// here url is paased as a prop
+// here url is passed as a prop
 
 const useFetch=(url)=>{
-
-    const [Blogs, setBlogs] = useState(null);
+    const [Data, setData] = useState(null);
     const [isPending, setisPending] = useState(true);
     const [error,setError]=useState(null);
 
     useEffect(()=>{
-
 //       This setTimeoutfuction used to simulate live loading of the page 
 //       Don't use in real world projects 
         setTimeout(()=>{
-          
             axios.get(url)
                 .then(res=>{
-                    setBlogs(res.data); 
+                    setData(res.data); 
                     setisPending(false); 
                     setError(null);
                 })
@@ -23,33 +20,17 @@ const useFetch=(url)=>{
                       setisPending(false);
                       setError(err.message);
                  }) 
-          
-            // fetch(url)
-            //     .then(res=>{
-            //         if(!res.ok){
-            //             setError(true);
-            //             throw Error("cant able to connect the server..!")
-            //         }
-            //         return res.json();
-            //     })
-            //     .then(res=>{
-            //         setBlogs(res); 
-            //         setisPending(false); 
-            //         setError(null);
-            //     })
-            //     .catch((err)=>{
-            //           setisPending(false);
-            //           setError(err.message);
-            //       })
-
-            
-                
         },1000)
       
     },[])
-
-    return {isPending,error,Blogs}
-
+    return {isPending,error,Data}
 }
 
 export default useFetch;
+
+// use of custom Hook 
+// pass the url to hook and store the data data
+// their is no need to create the below variabbles as useState
+// use the data to show on dashboard
+const {Data:workouts ,isPending,error} = useFetch('/api/workouts');
+
